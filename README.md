@@ -35,3 +35,15 @@ In your `Package.swift` file:
 
 ```swift
 .package(url: "https://github.com/smsdm4/SwiftCMSSigner.git", from: "1.0.0")
+```
+
+and then as a dependency for the Package target utilizing OpenSSL:
+
+```swift
+.target(
+    name: "MyApp",
+    dependencies: [
+        .product(name: "SwiftCMSSigner", package: "SwiftCMSSigner")
+    ]
+),
+```
