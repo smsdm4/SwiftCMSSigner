@@ -47,3 +47,35 @@ and then as a dependency for the Package target utilizing OpenSSL:
     ]
 ),
 ```
+Or, in Xcode:
+*Go to File > Add Packages...
+*Paste the URL of the repository
+*Choose version
+
+---
+
+## ✅ **Usage Example**
+
+```swift
+import SwiftCMSSigner
+
+let signer = SwiftCMSSigner()
+let inputData = Data("Hello, CMS!".utf8)
+
+let certPEM = """
+-----BEGIN CERTIFICATE-----
+...Your certificate PEM here...
+-----END CERTIFICATE-----
+"""
+
+let keyPEM = """
+-----BEGIN PRIVATE KEY-----
+...Your private key PEM here...
+-----END PRIVATE KEY-----
+"""
+
+if let base64CMS = signer.createCMSSignedMessageBase64(inputData: inputData, certPEM: certPEM, keyPEM: keyPEM) {
+    print("Signed CMS (Base64):")
+    print(base64CMS)
+}
+```
