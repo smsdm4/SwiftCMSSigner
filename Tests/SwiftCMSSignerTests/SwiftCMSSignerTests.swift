@@ -9,14 +9,16 @@ import XCTest
 final class SwiftCMSSignerTests: XCTestCase {
     
     func testCreateCMSSignedMessageBase64() {
-        // داده‌ی آزمایشی ساده برای امضا
+        // A simple test message that we’ll sign using our CMS signer
+        // You can replace this with any sample data you like
         let message = "Hello, CMS!"
         guard let messageData = message.data(using: .utf8) else {
             XCTFail("Failed to encode message to Data")
             return
         }
 
-        // جایگزین کن با مقدارهای واقعی PEM برای تست
+        // Replace with actual PEM values (certificate and key) for testing
+        // These are placeholder PEM blocks for the test
         let testCertificatePEM = """
         -----BEGIN CERTIFICATE-----
         MIID/TCCAuWgAwIBAgIUJILtdXPQwgXKjvW18/mKxOnormkwDQYJKoZIhvcNAQEL
